@@ -15,6 +15,18 @@
   .menu{font-size:14px;font-weight:700}
 }
 .stars{color:#785113;letter-spacing:0;font-weight:700}
+.partner-link{margin:26px 0 0;font-size:14px;font-weight:700;color:var(--blue)}
+.partner-link a,.service-link{text-decoration:underline;text-underline-offset:4px}
+.service-link{display:inline-block;margin-top:auto;color:var(--blue);font-size:13px;font-weight:700}
+.hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#request-form [hidden]{display:none!important}
+.form-status{font-size:14px;font-weight:700;color:var(--green);margin:13px 0 0}
+.submit-button:disabled{opacity:.7;cursor:wait}
+@media(max-width:1050px){
+  .final-grid{grid-template-columns:1fr;gap:0;padding:0}
+  .final-grid>div:first-child{padding:64px max(30px,calc((100vw - 1160px)/2));max-width:none}
+  .final-photo{min-height:300px}
+}
 /* Service images sit quietly behind the service copy. */
 .service-card{position:relative;min-height:350px;isolation:isolate;background:#f4f8f8}.service-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;z-index:-1;filter:contrast(1.13) saturate(1.08)}.service-card:nth-child(2) .service-photo{object-position:center}.service-content{padding:32px;min-height:350px;background:linear-gradient(90deg,#f7fbfbe8 0%,#f7fbfbb5 52%,#f7fbfb66 100%);position:relative}.service-num{margin-bottom:38px}.service-card p{color:#314f5b}.service-more{margin-top:auto;border-top:1px solid #a6c0c8;padding-top:13px}.service-more summary{list-style:none;cursor:pointer;color:var(--blue);font-size:13px;font-weight:800;display:flex;justify-content:space-between;align-items:center}.service-more summary::-webkit-details-marker{display:none}.service-more summary:hover{text-decoration:underline}.service-more[open] summary span{transform:rotate(45deg)}.service-more p{font-size:13px;line-height:1.5;margin:14px 0 0}.service-more summary span{font-size:19px;line-height:1;transition:transform .2s}.review figcaption a{color:inherit;text-decoration:none}
 @media(max-width:700px){.service-content{min-height:315px}.service-card{min-height:315px}.service-photo{height:100%}}
