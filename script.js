@@ -1,5 +1,12 @@
 const menu=document.querySelector('.menu');
 const nav=document.querySelector('nav');
+const companyYears=document.querySelector('#company-years');
+if(companyYears){
+  const [year,month,day]=companyYears.dataset.foundedDate.split('-').map(Number);
+  const today=new Date();
+  const beforeAnniversary=today.getMonth()+1<month||(today.getMonth()+1===month&&today.getDate()<day);
+  companyYears.textContent=String(Math.max(0,today.getFullYear()-year-Number(beforeAnniversary)));
+}
 menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));nav.classList.toggle('open',!open)});
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}));
 
@@ -35,9 +42,3 @@ form.addEventListener('submit',event=>{
   document.querySelector('#form-fallback').hidden=false;
   window.location.href=`mailto:ops@medteamintl.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
 });
-
-const revealTargets=document.querySelectorAll('.partner-grid,.section-head,.service-card,.fleet-photo,.journey-image,.journey-copy,.review,.founder-grid,.final-cta h2');
-if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-  const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-active');observer.unobserve(entry.target)}})},{threshold:.13});
-  revealTargets.forEach(element=>{element.classList.add('reveal');observer.observe(element)});
-}
